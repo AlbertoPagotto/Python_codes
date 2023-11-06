@@ -40,11 +40,14 @@ try:
     WebDriverWait(driver, 100).until(EC.presence_of_element_located((By.CSS_SELECTOR,'a.sort-link[href="/statistik/saisontransfers?sort=abloese_wert.desc"]'))).click()
 except:
     error_message('Failed to sort the players by fee.')
+
+################################################################################################################################################################################
+# Initialize variables
 fees_list=[]
 pg=1
-max_page=80
+max_page=80 #max page number to read
 while (pg<=max_page):
-## FIND MARKET VALUES
+## Find market values
     try:
         time.sleep(10)
         fees=driver.find_elements(by=By.CLASS_NAME,value='rechts')
@@ -67,11 +70,13 @@ while (pg<=max_page):
         error_message(f'Failed to go to page {pg}.')
         break
 
-#Closing the driver
+## CLOSING THE DRIVER
 driver.quit()
 print('[INFO] Driver closed successfully')
 
-# CLEANING THE LIST
+
+
+## CLEANING THE LIST FROM loans and turn m and k into numbers
 fees_list=[fee[1:] for fee in fees_list if ("transfer" not in fee)]
 fees_list=[fee[1:] for fee in fees_list if ("fee" not in fee)]
 fees_list=[float(fee[:-1])*((10**3)*(fee[-1]=='k')+(10**6)*(fee[-1]=='m')) for fee in fees_list]
