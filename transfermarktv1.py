@@ -1,7 +1,8 @@
 ###########################################
 # AUTHOR: Alberto Pagotto
 # Starting date: 01/11/2023
-# Last version: 04/11/2023
+# Last version: 05/11/2023
+# Purpose: this code allows to scrape data from transfermarkt and plot
 
 from selenium import webdriver
 from selenium.webdriver.common.by import By
