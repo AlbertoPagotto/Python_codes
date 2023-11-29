@@ -38,12 +38,9 @@ print(f"EMAIL: {__email__}")
 
 ## GENERATE THE URL TO ACCESS
 season=season_fun()
-#transfer_window=transfer_window_fun()
-#position=position_fun()
-#age=input('What age are you interested in (all, u15-23, 23-30,o30-35)? ')
-transfer_window='all'
-position='all'
-age='all'
+transfer_window=transfer_window_fun()
+position=position_fun()
+age=input('What age are you interested in (all, u15-23, 23-30,o30-35)? ')
 season_id=season.split('/')[0]
 transfer_id=transfer_dict[transfer_window.lower()]
 position_id=position_dict[position.lower()]
@@ -56,7 +53,7 @@ url_season=f'https://www.transfermarkt.com/transfers/saisontransfers/statistik/t
 
 
 ## SET GOOGLE CHROME TO ACCESS TRANSFERMARKT
-chrome_driver_path = r"...\chromedriver.exe"
+chrome_driver_path = r"...\chromedriver.exe" #Specify the path for chromedriver.exe (if necessary, install it)
 chrome_options = webdriver.ChromeOptions() # Keep the browser open if the script crashes.
 chrome_options.add_experimental_option("detach", True)
 chrome_options.add_experimental_option('excludeSwitches', ['enable-logging'])
