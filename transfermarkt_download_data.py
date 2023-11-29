@@ -56,7 +56,7 @@ url_season=f'https://www.transfermarkt.com/transfers/saisontransfers/statistik/t
 
 
 ## SET GOOGLE CHROME TO ACCESS TRANSFERMARKT
-chrome_driver_path = r"C:\Users\A315-55G-7045\Downloads\chromedriver_win32\chromedriver.exe"
+chrome_driver_path = r"...\chromedriver.exe"
 chrome_options = webdriver.ChromeOptions() # Keep the browser open if the script crashes.
 chrome_options.add_experimental_option("detach", True)
 chrome_options.add_experimental_option('excludeSwitches', ['enable-logging'])
